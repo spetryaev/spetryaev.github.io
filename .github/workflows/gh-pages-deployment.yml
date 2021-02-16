@@ -17,5 +17,5 @@ jobs:
           node-version: '12'
       - run: yarn install
       - run: yarn deploy
-        with:
-            github_token: ${{ secrets.REPO_TOKEN }}
+        env:
+            GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
