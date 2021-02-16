@@ -16,4 +16,4 @@ jobs:
       - run: yarn install
         with:
           github_token: ${{ secrets.REPO_TOKEN }}
-        - run: yarn deploy
+      - run: yarn deploy
