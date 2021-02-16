@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/spetryaev/art-portfolio-site.git",
-  "author": "Sergey Petryaev <spetryaev@bostonsd.ru>",
+  "author": "Sergey Petryaev <spetryaev@gmail.com>",
   "license": "MIT",
   "scripts": {
     "start": "webpack serve --config webpack.config.development.js",
