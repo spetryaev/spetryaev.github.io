@@ -4,7 +4,9 @@ import '../styles/app.scss';
 
 const App = () => {
     return (
-        <header className="app-header">Work In Progress</header>
+        <div>
+            <header className="app-header">Work In Progress...</header>
+        </div>
     );
 };
 
