@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
+      - run: git config --global user.email "sbpetryaev@gmail.com"
+      - run: git config --global user.name "Sergey Petryaev"
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
       - run: yarn install
-        with:
-          github_token: ${{ secrets.REPO_TOKEN }}
       - run: yarn deploy
