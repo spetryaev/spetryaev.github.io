@@ -1,7 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import bcrypt from 'bcryptjs';
+
+const passwordHash = "$2a$10$isYv/GTTBnMGvpFUXHr6Eu44aox/r/rbE3nO4VOxKEj6LhnOwIs3K";
+
 
 function App() {
+  // var salt = bcrypt.genSaltSync(10);
+  // var hash = bcrypt.hashSync("password!", salt);
+  // console.log(hash);
+
+  var isAuthtorized = bcrypt.compareSync("password!", passwordHash);
+  console.log(isAuthtorized);
+
   return (
     <div className="App">
       <header className="App-header">
