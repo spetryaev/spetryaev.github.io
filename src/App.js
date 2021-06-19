@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import bcrypt from 'bcryptjs';
 
 const passwordHash = "$2a$10$isYv/GTTBnMGvpFUXHr6Eu44aox/r/rbE3nO4VOxKEj6LhnOwIs3K";
