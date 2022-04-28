@@ -1,34 +1,42 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.scss';
-import bcrypt from 'bcryptjs';
-
-const passwordHash = "$2a$10$isYv/GTTBnMGvpFUXHr6Eu44aox/r/rbE3nO4VOxKEj6LhnOwIs3K";
-
+import SideBar from './components/side-bar/SideBar';
+import Grid from './components/grid/Grid';
+import {Flex, Box} from 'rebass';
 
 function App() {
-  // var salt = bcrypt.genSaltSync(10);
-  // var hash = bcrypt.hashSync("password!", salt);
-  // console.log(hash);
-
-  var isAuthtorized = bcrypt.compareSync("password!", passwordHash);
-  console.log(isAuthtorized);
+  // return (
+  //   <div className="App">
+  //       <Header></Header>
+  //       <SideNav></SideNav>
+  //       <Grid></Grid>
+  //   </div>
+  // );
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. Edited!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Flex
+        sx={{
+          flexWrap: 'wrap'
+        }}>
+        <Box
+          sx={{
+            p: 3,
+            flexGrow: 1,
+            flexBasis: 256
+          }}>
+            <SideBar></SideBar>
+        </Box>
+        <Box
+          sx={{
+            p: 3,
+            flexGrow: 99999,
+            flexBasis: 0,
+            minWidth: 320
+          }}>
+          <Grid></Grid>
+        </Box>
+      </Flex>
     </div>
   );
 }

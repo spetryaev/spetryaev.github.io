@@ -1,0 +1,36 @@
+.side-bar {
+    height: 100%;  
+    width: 25%;  
+    top: 0; 
+    left: 0; 
+    padding-top: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: left;
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+
+    margin-left: 20px;
+    
+
+    .nav {
+
+        padding-left: 0;
+        li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+    }
+}
