@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { Outlet } from 'react-router-dom';
 
+
 const drawerWidth = 240;
 
 function Navigation() {
@@ -31,7 +32,7 @@ function Navigation() {
                 </Drawer>
 
                 <Outlet/>
-                
+
                 </Box>
         </Box>
   );
