@@ -1,43 +1,24 @@
 //import logo from './logo.svg';
 import './App.scss';
-import SideBar from './components/side-bar/SideBar';
-import Grid from './components/grid/Grid';
-import {Flex, Box} from 'rebass';
+import { Routes, Route } from 'react-router-dom';
+
+import Navigation from './routes/Navigation';
+import Featured from './routes/Featured';
+import About from './routes/About';
+import Showcase from './routes/Showcase';
+
 
 function App() {
-  // return (
-  //   <div className="App">
-  //       <Header></Header>
-  //       <SideNav></SideNav>
-  //       <Grid></Grid>
-  //   </div>
-  // );
-
   return (
     <div className="app">
-      <Flex
-        sx={{
-          flexWrap: 'wrap'
-        }}>
-        <Box
-          sx={{
-            p: 3,
-            flexGrow: 1,
-            flexBasis: 256
-          }}>
-            <SideBar></SideBar>
-        </Box>
-        <Box
-          sx={{
-            p: 3,
-            flexGrow: 99999,
-            flexBasis: 0,
-            minWidth: 320
-          }}>
-          <Grid></Grid>
-        </Box>
-      </Flex>
-    </div>
+        <Routes>
+          <Route path="/" element={<Navigation/>}>
+            <Route index element={<Featured/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="*" element={<Showcase/>}/>
+          </Route>
+        </Routes>
+     </div>
   );
 }
 

@@ -1,38 +1,44 @@
 import './SideBar.scss';
 import Header from '../header/Header';
+import Divider from '@mui/material/Divider';
+import { Link } from 'react-router-dom';
 
-var navItems = [
+
+const navItems = [
+    {
+        "name": "animation",
+        "label": "Animation",
+        "uri": "animation"
+    },
     {
         "name": "story",
         "label": "Story",
-        "uri": "#story"
+        "uri": "story"
     },
     {
         "name": "characterDesign",
         "label": "Character Design",
-        "uri": "#chardesign"
+        "uri": "character-design"
     },
     {
         "name": "illustration",
         "label": "Illustration",
-        "uri": "#illustration"
-    },
+        "uri": "illustration"
+    }
+];
+
+const subNavItems = [
     {
         "name": "about",
         "label": "About Me",
-        "uri": "#about"
+        "uri": "about"
     },
     {
         "name": "cv",
         "label": "CV",
-        "uri": "#cv"
+        "uri": "cv"
     }
-
-];
-
-navItems = navItems.map(item => {
-    return <li key={item.name}><a href={item.uri} key={item.name}>{item.label}</a></li>
-})
+]
 
 function SideBar() {
     
@@ -40,7 +46,13 @@ function SideBar() {
         <div className="side-bar">
             <Header></Header>
             <ul className="nav">
-                {navItems}
+                {navItems.map((item, index) => (
+                    <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
+                ))}
+                <Divider light/>
+                {subNavItems.map((item, index) => (
+                    <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
+                ))}
             </ul>
         </div>
     );

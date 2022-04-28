@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
 import './Header.scss';
+
 
 function Header() {
     return (
         <div className="header">
-            <p>Sergey Petryaev</p>
+            <Link to="/">Sergey Petryaev</Link>
         </div>
         );
 }
