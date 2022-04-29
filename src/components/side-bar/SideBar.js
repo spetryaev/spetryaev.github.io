@@ -2,7 +2,8 @@ import './SideBar.scss';
 import Header from '../header/Header';
 import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
-
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 import Drawer from '@mui/material/Drawer';
 
 function SideBar(props) {
@@ -25,15 +26,15 @@ function SideBar(props) {
             >
                 <div className="side-bar">
                     <Header></Header>
-                    <ul className="nav">
+                    <List className="nav">
                         {props.navItems.map((item, index) => (
-                            <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
+                            <ListItem key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></ListItem>
                         ))}
                         <Divider light/>
                         {props.subNavItems.map((item, index) => (
-                            <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
+                            <ListItem key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></ListItem>
                         ))}
-                    </ul>
+                    </List>
                 </div>
             </Drawer>
     );

@@ -15,9 +15,9 @@ const styles = {
 }
 
 function TopBar(props) {
-    return(<Box sx={styles}>
+    return(<Box sx={styles} className="top-bar__nav">
         <Header/>
-        <List className="top-bar__nav">
+        <List>
             {props.navItems.map((item, index) => (
                 <ListItem key={item.name}>
                     <Link to={item.uri} key={item.name}>{item.label}</Link>
