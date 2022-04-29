@@ -7,18 +7,18 @@ import { toggleModal } from './ArtworkSlice';
 function Artwork(props) {
     const dispatch = useDispatch();
 
-    const style = {
+    var style = {
         display: 'block',
         img: {
-            maxWidth: '100%'
+            maxWidth: '100%',
         }
     }
-    
+
     return (<Box 
                 onClick={() => dispatch(toggleModal({src: props.src, lightboxOpen: true}))} 
                 sx={style}
                 className="artwork">
-                    <img src={props.src}></img>
+                    <img src={props.src} alt="art" loading='lazy'></img>
             </Box>);
 }
 

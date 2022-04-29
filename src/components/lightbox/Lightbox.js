@@ -1,23 +1,17 @@
-import { Fade, Modal, Backdrop } from "@mui/material";
+import { Fade, Modal } from "@mui/material";
 import { Box } from "@mui/system";
 import { toggleModal } from '../artwork/ArtworkSlice';
 import { useSelector, useDispatch } from 'react-redux';
-
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    img: {
-        maxWidth: '100%'
-    }
-  };
+import './Lightbox.scss';
 
 function Lightbox(props) {
     const isOpen = useSelector((state) => state.artwork.lightboxOpen);
     const src = useSelector((state) => state.artwork.src);
     const dispatch = useDispatch();
+
+    const handleClose = () => {
+        dispatch(toggleModal({src: src, lightboxOpen: false}))
+    }
 
     return (<Box>
         <Modal
@@ -26,16 +20,14 @@ function Lightbox(props) {
             open={isOpen}
             onClose={() => dispatch(toggleModal({src: src, lightboxOpen: false}))} 
             closeAfterTransition
-            BackdropComponent={Backdrop}
-            BackdropProps={{
-            timeout: 500,
-            }}
+            hideBackdrop
         >
-            <Fade in={isOpen}>
-            <Box sx={style}>
-                
-                <img src={src}></img>
-                
+            <Fade in={isOpen} timeout={300}>
+            <Box className="lightbox">
+                <Box className="lightbox_container" onClick={handleClose}>
+                    <img src={src} alt="art"></img>
+                </Box>
+                <div className="lightbox_background"></div>
             </Box>
             </Fade>
         </Modal>

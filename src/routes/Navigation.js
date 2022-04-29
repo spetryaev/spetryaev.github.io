@@ -5,7 +5,7 @@ import TopBar from '../components/top-bar/TopBar';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import { Outlet } from 'react-router-dom';
-
+import Lightbox from '../components/lightbox/Lightbox';
 
 const drawerWidth = 240;
 
@@ -32,7 +32,7 @@ function Navigation() {
                 </Drawer>
 
                 <Outlet/>
-
+                <Lightbox/>
                 </Box>
         </Box>
   );

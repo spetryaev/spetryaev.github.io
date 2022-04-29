@@ -1,7 +1,6 @@
 import Artwork from "../artwork/Artwork";
 import './ArtworkGrid.scss';
 import Box from '@mui/material/Box';
-import Lightbox from '../lightbox/Lightbox';
 import { ImageList, ImageListItem } from "@mui/material";
 
 const gridStyles = (theme) => ({
@@ -30,7 +29,7 @@ function ArtworkGrid(props) {
 
     return (
         <>
-            <Box className="artwork-grid" sx={gridStyles}>
+            <Box sx={gridStyles}>
             <ImageList variant="masonry" cols={3} gap={3}>
                     {props.artworks.map((item, index) => (
                         <ImageListItem key={index} sx={itemStyles}>
@@ -39,7 +38,6 @@ function ArtworkGrid(props) {
                     ))}
             </ImageList>
             </Box>
-            <Lightbox/>
         </>
       ); 
 }
