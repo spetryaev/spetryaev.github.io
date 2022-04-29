@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Lightbox from '../lightbox/Lightbox';
 import { useState } from "react";
+import { ImageList } from "@mui/material";
 
 var artworks = [];
 
@@ -29,23 +30,21 @@ const itemStyles = {
 
 function ArtworkGrid() {
 
-    const [isLightboxOpen, setLightBoxOpen] = useState(false);
-    const handleLightboxOpen = () => setLightBoxOpen(!isLightboxOpen);
-
+    
     return (
         <Box>
             <Box className="artwork-grid" sx={gridStyles}>
                 <Grid container spacing={{ xs: 1, md: 1 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                {artworks.map((item, index) => (
-                    <Grid item xs={4} sm={4} md={4} key={index} onClick={handleLightboxOpen} sx={itemStyles}>
-                        <Artwork key={item.key} content={item.label}></Artwork>
-                    </Grid>
-                ))}
+                    {artworks.map((item, index) => (
+                        <Grid item xs={4} sm={4} md={4} key={index} sx={itemStyles}>
+                            <Artwork key={item.key} content={item.label}></Artwork>
+                        </Grid>
+                    ))}
                 </Grid>
             </Box>
-            <Lightbox isLightboxOpen={isLightboxOpen} handleLightboxOpen={handleLightboxOpen}/>
+            <Lightbox/>
         </Box>
-      );
+      ); 
 }
 
 export default ArtworkGrid;

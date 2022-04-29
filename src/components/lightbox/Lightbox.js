@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Fade, Modal, Backdrop } from "@mui/material";
 import { Box } from "@mui/system";
-
+import { toggleModal } from '../artwork/ArtworkSlice';
+import { useSelector, useDispatch } from 'react-redux';
 
 const style = {
     position: 'absolute',
@@ -17,18 +18,16 @@ const style = {
   };
 
 function Lightbox(props) {
-    const [isOpen, setOpen] = useState(props.isLightboxOpen);
-
-    useEffect(() => {
-        setOpen(props.isLightboxOpen);
-    }, [props.isLightboxOpen]);
+    const isOpen = useSelector((state) => state.artwork.lightboxOpen);
+    const src = useSelector((state) => state.artwork.src);
+    const dispatch = useDispatch();
 
     return (<Box>
         <Modal
             aria-labelledby="transition-modal-title"
             aria-describedby="transition-modal-description"
             open={isOpen}
-            onClose={props.handleLightboxOpen}
+            onClose={() => dispatch(toggleModal({src: src, lightboxOpen: false}))} 
             closeAfterTransition
             BackdropComponent={Backdrop}
             BackdropProps={{
@@ -38,7 +37,7 @@ function Lightbox(props) {
             <Fade in={isOpen}>
             <Box sx={style}>
                 
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Artwork {src}
                 
             </Box>
             </Fade>
