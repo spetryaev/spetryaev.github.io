@@ -3,58 +3,39 @@ import Header from '../header/Header';
 import Divider from '@mui/material/Divider';
 import { Link } from 'react-router-dom';
 
+import Drawer from '@mui/material/Drawer';
 
-const navItems = [
-    {
-        "name": "animation",
-        "label": "Animation",
-        "uri": "animation"
-    },
-    {
-        "name": "story",
-        "label": "Story",
-        "uri": "story"
-    },
-    {
-        "name": "characterDesign",
-        "label": "Character Design",
-        "uri": "character-design"
-    },
-    {
-        "name": "illustration",
-        "label": "Illustration",
-        "uri": "illustration"
-    }
-];
+function SideBar(props) {
+    const drawerWidth = 240;
 
-const subNavItems = [
-    {
-        "name": "about",
-        "label": "About Me",
-        "uri": "about"
-    },
-    {
-        "name": "cv",
-        "label": "CV",
-        "uri": "cv"
-    }
-]
-
-function SideBar() {
-    
     return (
-        <div className="side-bar">
-            <Header></Header>
-            <ul className="nav">
-                {navItems.map((item, index) => (
-                    <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
-                ))}
-                <Divider light/>
-                {subNavItems.map((item, index) => (
-                    <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
-                ))}
-            </ul>
-        </div>
+            <Drawer
+                sx={{
+                display: { xs: 'none', sm: 'block' },
+                width: drawerWidth,
+                flexShrink: 0,
+                '& .MuiDrawer-paper': {
+                    width: drawerWidth,
+                    boxSizing: 'border-box',
+                    borderRight: 'none'
+                }
+                }}
+                variant="permanent"
+                anchor="left"
+            >
+                <div className="side-bar">
+                    <Header></Header>
+                    <ul className="nav">
+                        {props.navItems.map((item, index) => (
+                            <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
+                        ))}
+                        <Divider light/>
+                        {props.subNavItems.map((item, index) => (
+                            <li key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></li>
+                        ))}
+                    </ul>
+                </div>
+            </Drawer>
     );
 }
 

@@ -1,5 +1,10 @@
+import './TopBar.scss';
 import Box from '@mui/material/Box';
 import Header from '../header/Header';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import { Link } from 'react-router-dom';
+import Divider from '@mui/material/Divider';
 
 const styles = {
     display: {
@@ -9,9 +14,22 @@ const styles = {
     padding: '12px'
 }
 
-function TopBar() {
+function TopBar(props) {
     return(<Box sx={styles}>
         <Header/>
+        <List className="top-bar__nav">
+            {props.navItems.map((item, index) => (
+                <ListItem key={item.name}>
+                    <Link to={item.uri} key={item.name}>{item.label}</Link>
+                </ListItem>
+            ))}
+            <Divider light/>
+            {props.subNavItems.map((item, index) => (
+                <ListItem key={item.name}>
+                    <Link to={item.uri} key={item.name}>{item.label}</Link>
+                </ListItem>
+            ))}
+        </List>
     </Box>);
 }
 

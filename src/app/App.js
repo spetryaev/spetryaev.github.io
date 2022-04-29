@@ -2,10 +2,10 @@
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 
-import Navigation from '../routes/Navigation';
-import Featured from '../routes/Featured';
-import About from '../routes/About';
-import Showcase from '../routes/Showcase';
+import Navigation from '../layouts/Navigation';
+import Featured from '../layouts/Featured';
+import About from '../layouts/About';
+import Showcase from '../layouts/Showcase';
 
 function App() {
   return (
