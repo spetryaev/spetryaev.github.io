@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { Fade, Modal, Backdrop } from "@mui/material";
 import { Box } from "@mui/system";
 import { toggleModal } from '../artwork/ArtworkSlice';
@@ -10,11 +9,9 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-    backgroundColor: 'white'
+    img: {
+        maxWidth: '100%'
+    }
   };
 
 function Lightbox(props) {
@@ -37,7 +34,7 @@ function Lightbox(props) {
             <Fade in={isOpen}>
             <Box sx={style}>
                 
-                Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Artwork {src}
+                <img src={src}></img>
                 
             </Box>
             </Fade>

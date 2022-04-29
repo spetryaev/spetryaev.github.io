@@ -1,22 +1,24 @@
 import { Box } from '@mui/material';
 import './Artwork.scss';
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { toggleModal, selectSrc } from './ArtworkSlice';
+import { useDispatch } from 'react-redux'
+import { toggleModal } from './ArtworkSlice';
 
 function Artwork(props) {
-    const src = useSelector((state) => state.artwork.src);
     const dispatch = useDispatch();
 
     const style = {
         display: 'block',
+        img: {
+            maxWidth: '100%'
+        }
     }
     
     return (<Box 
-                onClick={() => dispatch(toggleModal({src: props.content, lightboxOpen: true}))} 
+                onClick={() => dispatch(toggleModal({src: props.src, lightboxOpen: true}))} 
                 sx={style}
                 className="artwork">
-                    {props.content}
+                    <img src={props.src}></img>
             </Box>);
 }
 
