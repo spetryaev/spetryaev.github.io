@@ -16,14 +16,16 @@ const gridStyles = (theme) => ({
     }
 })
 
-const itemStyles = {
-    cursor: 'pointer',
+const itemStyles = (theme) => ({
     transition: '0.15s ease',
-    '&:hover': {
-        opacity: [0.9, 0.8, 0.7],
-        transition: '0.15s ease'
+    [theme.breakpoints.up('sm')]: {
+        '&:hover': {
+            opacity: [0.9, 0.8, 0.7],
+            transition: '0.15s ease',
+            cursor: 'pointer'
+        }
     }
-}
+})
 
 function ArtworkGrid(props) {
 
