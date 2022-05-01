@@ -43,14 +43,21 @@ const data = {
     ]
 }
 
-function Navigation() {
+function Main() {
+    const contentStyles = (theme) => ({
+        [theme.breakpoints.down('sm')]: {
+            paddingTop: '3.5vh'
+        }
+    });
   return (
         <>
             <TopBar navItems={data.nav} subNavItems={data.subnav}></TopBar>
             
             <Box sx={{ display: 'flex' }}>
                 <SideBar navItems={data.nav} subNavItems={data.subnav}></SideBar>
-                <Outlet/>
+                <Box sx={contentStyles}>
+                    <Outlet/>
+                </Box>
             </Box>
             
             <Lightbox/>
@@ -58,4 +65,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default Main;

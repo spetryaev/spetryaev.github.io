@@ -1,5 +1,18 @@
 .top-bar {
-    &__nav {
+    &__menu {
+        background-color: white;
+        height: 100%;
+
+        ul {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            width: 100%;
+            font-size: 2rem;
+        }
+
         li {
             text-align: center;
             

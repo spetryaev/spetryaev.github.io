@@ -2,7 +2,7 @@
 import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 
-import Navigation from '../layouts/Navigation';
+import Main from '../layouts/Main';
 import Featured from '../layouts/Featured';
 import About from '../layouts/About';
 import Showcase from '../layouts/Showcase';
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="app">
         <Routes>
-          <Route path="/" element={<Navigation/>}>
+          <Route path="/" element={<Main/>}>
             <Route index element={<Featured/>}/>
             <Route path="/about" element={<About/>}/>
             <Route path="*" element={<Showcase/>}/>
