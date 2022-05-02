@@ -1,7 +1,7 @@
 .top-bar {
     &__menu {
         background-color: white;
-        height: 100vh;
+        height: 100%;
 
         ul {
             position: absolute;
@@ -30,12 +30,7 @@
             a:visited {
                 text-decoration: none;
             }
-    
-            a:hover {
-                color: gray;
-                padding-left: 5px;
-                transition: 0.2s ease;
-            }
+
         }
     }
 }

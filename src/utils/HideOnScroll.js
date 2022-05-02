@@ -4,12 +4,10 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
 
 function HideOnScroll(props) {
-    const { children, window } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
+    const { children } = props;
+
     const trigger = useScrollTrigger({
-      target: window ? window() : undefined,
+        threshold: 2000 // don't trigger if hasn't scrolled past 2000px
     });
   
     return (

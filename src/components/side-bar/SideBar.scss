@@ -2,7 +2,7 @@
 .side-bar {
     padding: 15px 15px 0 15px;
 
-    .nav {
+    &__nav {
 
         a {
             text-decoration: none;
@@ -23,6 +23,11 @@
             color: gray;
             padding-left: 5px;
             transition: 0.2s ease;
+        }
+
+        &_active {
+            color: gray !important;
+            padding-left: 5px;
         }
         
     }

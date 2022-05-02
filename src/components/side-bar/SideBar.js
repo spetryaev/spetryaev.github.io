@@ -1,7 +1,7 @@
 import './SideBar.scss';
 import Header from '../header/Header';
 import Divider from '@mui/material/Divider';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Drawer from '@mui/material/Drawer';
@@ -26,13 +26,13 @@ function SideBar(props) {
             >
                 <div className="side-bar">
                     <Header></Header>
-                    <List className="nav">
+                    <List className="side-bar__nav">
                         {props.navItems.map((item, index) => (
-                            <ListItem key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></ListItem>
+                            <ListItem key={item.name}><NavLink className={({ isActive }) => (isActive ? 'side-bar__nav_active' : 'side-bar__nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink></ListItem>
                         ))}
                         <Divider light/>
                         {props.subNavItems.map((item, index) => (
-                            <ListItem key={item.name}><Link to={item.uri} key={item.name}>{item.label}</Link></ListItem>
+                            <ListItem key={item.name}><NavLink className={({ isActive }) => (isActive ? 'side-bar__nav_active' : 'side-bar__nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink></ListItem>
                         ))}
                     </List>
                 </div>
