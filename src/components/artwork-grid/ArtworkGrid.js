@@ -28,14 +28,13 @@ const itemStyles = (theme) => ({
 })
 
 function ArtworkGrid(props) {
-
     return (
         <>
             <Box sx={gridStyles}>
-            <ImageList variant="masonry" cols={3} gap={3}>
+            <ImageList variant="masonry" cols={3} gap={8}>
                     {props.artworks.map((item, index) => (
                         <ImageListItem key={index} sx={itemStyles}>
-                            <Artwork key={item.key} content={item.label} src={item.src}></Artwork>
+                            <Artwork key={item.key} {...item}></Artwork>
                         </ImageListItem>
                     ))}
             </ImageList>

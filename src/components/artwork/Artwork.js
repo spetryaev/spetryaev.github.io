@@ -27,7 +27,7 @@ function Artwork(props) {
                 onClick={handleOnlick} 
                 sx={style}
                 className="artwork">
-                    <img src={props.src} alt="art" loading='lazy'></img>
+                    <img src={props.src} alt={props.name} loading='lazy'></img>
             </Box>);
 }
 
