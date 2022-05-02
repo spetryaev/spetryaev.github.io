@@ -41,4 +41,10 @@ const getImages = (n) => {
     return artworks;
 }
 
+export const getImage = (n) => {
+    const artworks = [];
+    artworks.push(images[n]);
+    return artworks;
+}
+
 export default getImages;

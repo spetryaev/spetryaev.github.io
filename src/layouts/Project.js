@@ -1,8 +1,8 @@
 import ArtworkGrid from '../components/artwork-grid/ArtworkGrid';
-import getImages from '../utils/assetHelper';
+import { getImage } from '../utils/assetHelper';
 
 
-const artworks = getImages(4);
+const artworks = getImage(4);
 
 
 function Project() {

@@ -47,11 +47,6 @@ const data = {
             "name": "about",
             "label": "About Me",
             "uri": "about"
-        },
-        {
-            "name": "cv",
-            "label": "CV",
-            "uri": "cv"
         }
     ]
 }

@@ -7,7 +7,7 @@ import ListItem from '@mui/material/ListItem';
 import Drawer from '@mui/material/Drawer';
 
 function SideBar(props) {
-    const drawerWidth = 240;
+    const drawerWidth = 280;
 
     return (
             <Drawer
