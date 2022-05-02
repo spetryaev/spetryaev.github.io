@@ -24,9 +24,9 @@ const itemStyles = (theme) => ({
 })
 
 function ArtworkGrid(props) {
-    const isMobileView = useMediaQuery('(max-width:600px)');
+    const showOneColumn = useMediaQuery('(max-width:1200px)');
     let nCols;
-    if (isMobileView) {
+    if (showOneColumn) {
         nCols = 1;
     } else {
         nCols = props.artworks.length > 4 ? 3 : props.artworks.length > 2 ? 2 : 1;
