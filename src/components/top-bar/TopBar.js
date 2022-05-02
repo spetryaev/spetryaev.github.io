@@ -12,7 +12,6 @@ import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import HideOnScroll from '../../utils/HideOnScroll';
 
-
 const styles = {
     display: {
         xs: 'block',
@@ -32,9 +31,9 @@ function TopBar(props) {
 
     const modalStyles = (theme) => ({
         [theme.breakpoints.up('sm')]: {
-            display: 'none'
+            display: 'none',
+            touchAction: 'none',
         },
-        touchAction: 'none',
     })
 
     return(<>
@@ -56,9 +55,10 @@ function TopBar(props) {
             aria-describedby="modal-modal-description"
             closeAfterTransition
             hideBackdrop
+            sx={modalStyles}
         >
             <Slide direction="down" in={isOpen}>
-                <Box className="top-bar__menu" sx={modalStyles}>
+                <Box className="top-bar__menu">
                     <Box className="top-bar__menu_close-button">
                         <Button onClick={toogleNavMenu}><CloseRoundedIcon color="action"/></Button>
                     </Box>
