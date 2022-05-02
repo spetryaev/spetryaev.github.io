@@ -6,7 +6,7 @@ import { ImageList, ImageListItem } from "@mui/material";
 const gridStyles = (theme) => ({
     padding: {
         xs: '0',
-        sm: '40px 40px 0 0'
+        sm: '2.5rem 2.5rem 0 0'
     },
     overflowY: 'scroll',
     [theme.breakpoints.down('lg')]: {

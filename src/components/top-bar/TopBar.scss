@@ -3,38 +3,55 @@
         background-color: white;
         height: 100%;
 
-        ul {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            box-sizing: border-box;
+        &_close-button {
+            position: fixed;
             width: 100%;
-            font-size: 2rem;
+            text-align: right;
+            height: 5%;
+
+            button {
+                padding: 1rem;
+            }
         }
 
-        li {
-            text-align: center;
-            
-            a {
-                text-decoration: none;
-                color: black;
-                font-weight: 600;
-                transition: 0.2s ease;
-    
-                display: block;
+        &_nav {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            ul {
+                box-sizing: border-box;
                 width: 100%;
-                height: 100%;
-            }
-    
-            a:visited {
-                text-decoration: none;
+                font-size: 2rem;
             }
 
-        }
+            li {
+                text-align: center;
+                
+                a {
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 600;
+                    transition: 0.2s ease;
+        
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+        
+                a:visited {
+                    text-decoration: none;
+                }
 
-        &_active {
-            color: gray !important;
+            }
+
+            &_active {
+                color: gray !important;
+            }
+
+            &_divider {
+                margin: 0.5rem 0 0.5rem 0 !important;
+            }
         }
     }
 }

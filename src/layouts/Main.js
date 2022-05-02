@@ -7,7 +7,7 @@ import { Outlet } from 'react-router-dom';
 import Lightbox from '../components/lightbox/Lightbox';
 
 const data = {
-    nav: [
+    navItems: [
             {
                 "name": "animation",
                 "label": "Animation",
@@ -29,7 +29,20 @@ const data = {
                 "uri": "illustration"
             }
     ],
-    subnav: [
+    projectItems: [
+        {
+            "name": "mermaidMusician",
+            "label": "Mermaid Musician",
+            "uri": "projects/mermaid-musicial"
+        },
+        {
+            "name": "deanaStickers",
+            "label": "Deana Stickers",
+            "uri": "projects/deana-stickers"
+        },
+        
+    ],
+    subNavItems: [
         {
             "name": "about",
             "label": "About Me",
@@ -51,10 +64,10 @@ function Main() {
     });
   return (
         <>
-            <TopBar navItems={data.nav} subNavItems={data.subnav}></TopBar>
+            <TopBar {...data}></TopBar>
             
             <Box sx={{ display: 'flex' }}>
-                <SideBar navItems={data.nav} subNavItems={data.subnav}></SideBar>
+                <SideBar {...data}></SideBar>
                 <Box sx={contentStyles}>
                     <Outlet/>
                 </Box>

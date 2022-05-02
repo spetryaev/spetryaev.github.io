@@ -59,22 +59,30 @@ function TopBar(props) {
         >
             <Slide direction="down" in={isOpen}>
                 <Box className="top-bar__menu" sx={modalStyles}>
-                    <Box sx={{float: 'right', p: '12px'}}>
+                    <Box className="top-bar__menu_close-button">
                         <Button onClick={toogleNavMenu}><CloseRoundedIcon color="action"/></Button>
                     </Box>
-                    <List>
-                        {props.navItems.map((item, index) => (
-                            <ListItem key={item.name} onClick={toogleNavMenu}>
-                                <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
-                            </ListItem>
-                        ))}
-                        <Divider light/>
-                        {props.subNavItems.map((item, index) => (
-                            <ListItem key={item.name} onClick={toogleNavMenu}>
-                                <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
-                            </ListItem>
-                        ))}
-                    </List>
+                    <Box className="top-bar__menu_nav">
+                        <List>
+                            {props.navItems.map((item, index) => (
+                                <ListItem key={item.name} onClick={toogleNavMenu}>
+                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
+                                </ListItem>
+                            ))}
+                            <Divider light className="top-bar__menu_divider"/>
+                            {props.projectItems.map((item, index) => (
+                                <ListItem key={item.name}>
+                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
+                                </ListItem>
+                            ))}
+                            <Divider light className="top-bar__menu_divider"/>
+                            {props.subNavItems.map((item, index) => (
+                                <ListItem key={item.name} onClick={toogleNavMenu}>
+                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Box>
                 </Box>
             </Slide>
 

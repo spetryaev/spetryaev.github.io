@@ -3,6 +3,7 @@
     padding: 15px 15px 0 15px;
 
     &__nav {
+        padding-top: 3.5rem !important;
 
         a {
             text-decoration: none;
@@ -21,14 +22,17 @@
 
         a:hover {
             color: gray;
-            padding-left: 5px;
+            padding-left: 0.5rem;
             transition: 0.2s ease;
         }
 
         &_active {
             color: gray !important;
-            padding-left: 5px;
+            padding-left: 0.5rem;
         }
         
+        &_divider {
+            margin: 0.5rem 0 0.5rem 0 !important;
+        }
     }
 }

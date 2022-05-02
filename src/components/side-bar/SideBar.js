@@ -30,7 +30,11 @@ function SideBar(props) {
                         {props.navItems.map((item, index) => (
                             <ListItem key={item.name}><NavLink className={({ isActive }) => (isActive ? 'side-bar__nav_active' : 'side-bar__nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink></ListItem>
                         ))}
-                        <Divider light/>
+                        <Divider light className="side-bar__nav_divider"/>
+                        {props.projectItems.map((item, index) => (
+                            <ListItem key={item.name}><NavLink className={({ isActive }) => (isActive ? 'side-bar__nav_active' : 'side-bar__nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink></ListItem>
+                        ))}
+                        <Divider light className="side-bar__nav_divider"/>
                         {props.subNavItems.map((item, index) => (
                             <ListItem key={item.name}><NavLink className={({ isActive }) => (isActive ? 'side-bar__nav_active' : 'side-bar__nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink></ListItem>
                         ))}
