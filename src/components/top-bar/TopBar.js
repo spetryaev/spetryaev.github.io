@@ -10,13 +10,17 @@ import { useState } from 'react';
 import Slide from '@mui/material/Slide';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import HideOnScroll from '../../utils/HideOnScroll';
+
 
 const styles = {
     display: {
         xs: 'block',
         sm: 'none'
     },
-    padding: '12px'
+    height: {
+        xs: '4rem'
+    }
 }
 
 function TopBar(props) {
@@ -29,20 +33,21 @@ function TopBar(props) {
     const modalStyles = (theme) => ({
         [theme.breakpoints.up('sm')]: {
             display: 'none'
-        }
+        },
+        touchAction: 'none',
     })
 
-    return(<Box sx={styles} className="top-bar__nav">
-        <AppBar position="fixed" color="inherit">
-            <Toolbar>
-            <Box sx={{ display: 'contents' }}>
-                <Header/>
-                <Button onClick={toogleNavMenu} sx={{marginLeft: 'auto'}}><MenuRoundedIcon color="action"/></Button>
-            </Box>
-            </Toolbar>
-        </AppBar>
-
-        
+    return(<>
+        <HideOnScroll {...props}>
+            <AppBar position="fixed" color="inherit" sx={styles}  elevation={0}>
+                <Toolbar>
+                <Box sx={{ display: 'contents' }}>
+                    <Header/>
+                    <Button onClick={toogleNavMenu} sx={{marginLeft: 'auto'}}><MenuRoundedIcon color="action"/></Button>
+                </Box>
+                </Toolbar>
+            </AppBar>
+        </HideOnScroll>
 
         <Modal
             open={isOpen}
@@ -75,7 +80,7 @@ function TopBar(props) {
 
              
         </Modal>
-    </Box>);
+    </>);
 }
 
 export default TopBar;

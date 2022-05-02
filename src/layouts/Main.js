@@ -46,7 +46,7 @@ const data = {
 function Main() {
     const contentStyles = (theme) => ({
         [theme.breakpoints.down('sm')]: {
-            paddingTop: '3.5vh'
+            paddingTop: '4rem'
         }
     });
   return (
