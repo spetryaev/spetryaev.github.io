@@ -6,14 +6,17 @@ import Main from '../layouts/Main';
 import Featured from '../layouts/Featured';
 import About from '../layouts/About';
 import Showcase from '../layouts/Showcase';
+import Project from '../layouts/Project';
 
 function App() {
   return (
     <div className="app">
         <Routes>
-          <Route path="/" element={<Main/>}>
+          <Route exact path="/" element={<Main/>}>
             <Route index element={<Featured/>}/>
-            <Route path="/about" element={<About/>}/>
+            <Route exact path="about" element={<About/>}/>
+            <Route path="projects/*" element={<Project/>}/>
+
             <Route path="*" element={<Showcase/>}/>
           </Route>
         </Routes>
