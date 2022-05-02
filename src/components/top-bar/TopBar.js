@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Header from '../header/Header';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
 import { Modal, Button, AppBar, Toolbar } from "@mui/material";
 import { useState } from 'react';
@@ -65,13 +65,13 @@ function TopBar(props) {
                     <List>
                         {props.navItems.map((item, index) => (
                             <ListItem key={item.name} onClick={toogleNavMenu}>
-                                <Link to={item.uri} key={item.name}>{item.label}</Link>
+                                <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
                             </ListItem>
                         ))}
                         <Divider light/>
                         {props.subNavItems.map((item, index) => (
                             <ListItem key={item.name} onClick={toogleNavMenu}>
-                                <Link to={item.uri} key={item.name}>{item.label}</Link>
+                                <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
                             </ListItem>
                         ))}
                     </List>
