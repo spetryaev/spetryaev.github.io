@@ -66,19 +66,19 @@ function TopBar(props) {
                         <List>
                             {props.navItems.map((item, index) => (
                                 <ListItem key={item.name} onClick={toogleNavMenu}>
-                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
+                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_nav_active' : 'top-bar__menu_nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
                                 </ListItem>
                             ))}
                             <Divider light className="top-bar__menu_divider"/>
                             {props.projectItems.map((item, index) => (
                                 <ListItem key={item.name} onClick={toogleNavMenu}>
-                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
+                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_nav_active' : 'top-bar__menu_nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
                                 </ListItem>
                             ))}
                             <Divider light className="top-bar__menu_divider"/>
                             {props.subNavItems.map((item, index) => (
                                 <ListItem key={item.name} onClick={toogleNavMenu}>
-                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
+                                    <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_nav_active' : 'top-bar__menu_nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
                                 </ListItem>
                             ))}
                         </List>
