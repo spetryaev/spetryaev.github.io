@@ -9,6 +9,11 @@ import Lightbox from '../components/lightbox/Lightbox';
 const data = {
     navItems: [
             {
+                "name": "featured-work",
+                "label": "Featured Work",
+                "uri": ""
+            },
+            {
                 "name": "animation",
                 "label": "Animation",
                 "uri": "animation"

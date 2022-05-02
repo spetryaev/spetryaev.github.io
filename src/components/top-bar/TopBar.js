@@ -71,7 +71,7 @@ function TopBar(props) {
                             ))}
                             <Divider light className="top-bar__menu_divider"/>
                             {props.projectItems.map((item, index) => (
-                                <ListItem key={item.name}>
+                                <ListItem key={item.name} onClick={toogleNavMenu}>
                                     <NavLink className={({ isActive }) => (isActive ? 'top-bar__menu_active' : 'top-bar__menu_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink>
                                 </ListItem>
                             ))}
