@@ -1,4 +1,6 @@
 .top-bar {
+    padding: 2rem 1rem;
+    
     &__menu {
         background-color: white;
         height: 100%;
@@ -29,6 +31,7 @@
                 text-align: center;
                 
                 a {
+                    padding: 0.5rem 1rem;
                     text-decoration: none;
                     color: black;
                     font-weight: 600;
@@ -41,12 +44,14 @@
         
                 a:visited {
                     text-decoration: none;
+                    color: black;
                 }
 
             }
 
             &_active {
-                color: gray !important;
+                color: white !important;
+                background-color: black;
             }
 
             &_divider {
