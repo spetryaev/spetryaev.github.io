@@ -1,0 +1,21 @@
+.header {
+    font-size: 1.5rem;
+
+    padding-left: 1rem;
+
+    a {
+        text-decoration: none;
+        color: black;
+        transition: 0.2s ease;
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: gray;
+        transition: 0.2s ease;
+    }
+
+}

@@ -1,0 +1,62 @@
+.top-bar {
+    padding: 2rem 1rem;
+    
+    &__menu {
+        background-color: white;
+        height: 100%;
+
+        &_close-button {
+            position: fixed;
+            width: 100%;
+            text-align: right;
+            height: 5%;
+
+            button {
+                padding: 1rem;
+            }
+        }
+
+        &_nav {
+            display: flex;
+            align-items: center;
+            height: 100%;
+
+            ul {
+                box-sizing: border-box;
+                width: 100%;
+                font-size: 2rem;
+            }
+
+            li {
+                text-align: center;
+                
+                a {
+                    padding: 0.5rem 1rem;
+                    text-decoration: none;
+                    color: black;
+                    font-weight: 600;
+                    transition: 0.2s ease;
+        
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                }
+        
+                a:visited {
+                    text-decoration: none;
+                    color: black;
+                }
+
+            }
+
+            &_active {
+                color: white !important;
+                background-color: black;
+            }
+
+            &_divider {
+                margin: 0.5rem 0 0.5rem 0 !important;
+            }
+        }
+    }
+}

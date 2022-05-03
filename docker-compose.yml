@@ -3,6 +3,7 @@ version: '3.7'
 services:
 
   art-portfolio:
+    platform: linux/amd64
     container_name: portfolio-react
     build:
       context: .
