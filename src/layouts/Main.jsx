@@ -50,7 +50,7 @@ const data = {
     subNavItems: [
         {
             "name": "about",
-            "label": "About Me",
+            "label": "About",
             "uri": "about"
         }
     ]
