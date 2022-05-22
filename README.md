@@ -1,5 +1,16 @@
-Run with Docker:
+## Portfolio Site
+This is my personal portfolio site hosted on GitHub Pages. 
 
-sudo docker-compose up
+On commit to master, custom GitHub Action kicks in, builds the project and serves it on GitHub pages using ```crazy-max/ghaction-github-pages@v1```. For develop builds, I set up Vercel app to perform automated deployments to non-prod environments.
 
-The application runs at port 3001
+This project is built with React and MUI.
+
+Current roadmap:
+- [x] Core template
+- [x] Image grids and lightbox
+- [x] Responsive Layout
+- [ ] SEO
+- [ ] Animations
+- [ ] Seamless Transitions between pages
+- [ ] UI modules for showcasing specific media
+- [ ] More content!
