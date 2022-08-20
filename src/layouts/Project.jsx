@@ -2,11 +2,17 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const heroStyles = {
+    width: '78vw',
     img: {
-        width: '95%',
+        width: '100%',
         margin: '1rem'
+    },
+    span: {
+        maxWidth: '100%'
     }
 }
 
@@ -35,7 +41,7 @@ function Project() {
 
     return (<>
         <Box sx={heroStyles}>
-            <img src={ val && val.heroBanner ? val.heroBanner.url : ''} alt={ val && val.heroBanner ? val.heroBanner.name : ''} loading='lazy'></img>
+            <ArtworkLazy data={ val ? val.heroBanner : null}/>
         </Box>
         <h1>{ val ? val.headline : '' }</h1>
         <ArtworkList artworkCollection={val ? val.artworkCollection : null}></ArtworkList>
@@ -43,11 +49,27 @@ function Project() {
     </>);
 }
 
+function ArtworkLazy(props) {
+    return (<>
+        <LazyLoadImage 
+                alt={ props.data ? props.data.name : ''}
+                src={ props.data ? props.data.url : '' }
+                width={ props.data ? props.data.width : '' }
+                placeholderSrc={ props.data ? props.data.formats.thumbnail.url : '' }
+                height="auto"
+                max-width="100%"
+                effect="blur"
+            />
+        {/* <img src={ props.data ? props.data.url : '' } alt={ props.data ? props.data.name : ''} loading='lazy'></img> */}
+    </>);
+}
+
 function ArtworkList(props) {
     return (<>
         { props.artworkCollection ? props.artworkCollection.map((item, i) => (
             <Box sx={heroStyles} key={item.asset.hash} >
-                <img src={item.asset.url} alt={item.asset.name} loading='lazy'></img>
+                {/* <img src={item.asset.url} alt={item.asset.name} loading='lazy'></img> */}
+                <ArtworkLazy data={ item.asset ? item.asset : null}/>
                 <h2>{ item.title }</h2>
                 <p>{ item.description }</p>
             </Box>
