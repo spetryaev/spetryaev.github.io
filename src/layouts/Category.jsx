@@ -9,21 +9,22 @@ const token = process.env.REACT_APP_STRAPI_TOKEN;
 function Category() {
     const [val, setVal] = useState();
     const location = useLocation();
-    const slug = location.pathname.split( '/' )[1];
-    const url = strapiUrl + '/api/art-categories?filters[slug]=' + slug + '&populate[artworks][populate][1]=asset';
-    const getData= async () => {
-        const config = {
-            headers: { Authorization: `Bearer ${token}` }
-        }
-        const { data } = await axios.get(
-                url,
-                config
-            );
-        console.log("Fetching category: " + slug);
-        setVal(data.data[0]);
-    };
-  
+
     useEffect(() => {
+        const slug = location.pathname.split( '/' )[1];
+        const url = strapiUrl + '/api/art-categories?filters[slug]=' + slug + '&populate[artworks][populate][1]=asset';
+        
+        const getData= async () => {
+            const config = {
+                headers: { Authorization: `Bearer ${token}` }
+            }
+            const { data } = await axios.get(
+                    url,
+                    config
+                );
+            console.log("Fetching category: " + slug);
+            setVal(data.data[0]);
+        };
         getData();
     }, [location]);
 

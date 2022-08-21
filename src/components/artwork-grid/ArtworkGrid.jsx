@@ -1,9 +1,8 @@
 import Artwork from "../artwork/Artwork";
 import './ArtworkGrid.scss';
 import Box from '@mui/material/Box';
-import { ImageList, ImageListItem } from "@mui/material";
+import { ImageList } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
 
 const gridStyles = (theme) => ({
     padding: {
@@ -13,16 +12,16 @@ const gridStyles = (theme) => ({
     overflowY: 'scroll',
 })
 
-const itemStyles = (theme) => ({
-    transition: '0.15s ease',
-    [theme.breakpoints.up('sm')]: {
-        '&:hover': {
-            opacity: [0.9, 0.8, 0.7],
-            transition: '0.15s ease',
-            cursor: 'pointer'
-        }
-    }
-})
+// const itemStyles = (theme) => ({
+//     transition: '0.15s ease',
+//     [theme.breakpoints.up('sm')]: {
+//         '&:hover': {
+//             opacity: [0.9, 0.8, 0.7],
+//             transition: '0.15s ease',
+//             cursor: 'pointer'
+//         }
+//     }
+// })
 
 function ArtworkGrid(props) {
     const showOneColumn = useMediaQuery('(max-width:1200px)');

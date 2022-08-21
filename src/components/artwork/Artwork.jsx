@@ -10,14 +10,6 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function Artwork(props) {
     const dispatch = useDispatch();
-
-    var style = {
-        //display: 'block',
-        span: {
-            width: props.display && props.display === "inset" ? "50%" : "100%"
-        }
-    }
-
     const isMobileView = useMediaQuery('(max-width:600px)');
 
     const handleOnlick = () => {
@@ -54,20 +46,3 @@ function Artwork(props) {
 }
 
 export default Artwork;
-
-
-
-function ArtworkLazy(props) {
-    console.log(props);
-    return (<>
-        <LazyLoadImage 
-                alt={ props.data ? props.data.name : ''}
-                src={ props.data ? props.data.url : '' }
-                width={ props.display && props.display === "inset" ? "50%" : "100%"}
-                placeholderSrc={ props.data ? props.data.formats.thumbnail.url : '' }
-                height="auto"
-                max-width="100%"
-                effect="blur"
-            />
-    </>);
-}
