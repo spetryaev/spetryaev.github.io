@@ -69,8 +69,8 @@ function About() {
                         asset={ val ? val.heroBanner : null } 
                         display={ val && val.display ? val.display : "full"}
                         alignment={ val && val.alignment ? val.alignment : "center"}
-                        showTitle={ true }
-                        showDescription={ true }
+                        showTitle={ false }
+                        showDescription={ false }
                     />
                 </Box>
                 <Box sx={blogStyles}>
