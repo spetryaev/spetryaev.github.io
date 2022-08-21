@@ -45,7 +45,7 @@ function About() {
 
     const [val, setVal] = useState();
 
-    const getData= async () => {
+    const getData = async () => {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
