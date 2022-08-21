@@ -40,8 +40,8 @@ function Project() {
     }, [location]);
 
     return (<>
-        <Box sx={heroStyles}>
-            <ArtworkLazy data={ val ? val.heroBanner : null}/>
+        <Box sx={heroStyles} display="flex" justifyContent="center" alignItems="center">
+            <ArtworkLazy data={ val ? val.heroBanner : null} display={ val ? val.display : "full"}/>
         </Box>
         <h1>{ val ? val.headline : '' }</h1>
         <ArtworkList artworkCollection={val ? val.artworkCollection : null}></ArtworkList>
@@ -50,28 +50,39 @@ function Project() {
 }
 
 function ArtworkLazy(props) {
+    console.log(props);
     return (<>
         <LazyLoadImage 
                 alt={ props.data ? props.data.name : ''}
                 src={ props.data ? props.data.url : '' }
-                width={ props.data ? props.data.width : '' }
+                width={ props.display && props.display === "inset" ? "50%" : "100%"}
                 placeholderSrc={ props.data ? props.data.formats.thumbnail.url : '' }
                 height="auto"
                 max-width="100%"
                 effect="blur"
             />
-        {/* <img src={ props.data ? props.data.url : '' } alt={ props.data ? props.data.name : ''} loading='lazy'></img> */}
     </>);
 }
 
+/**
+ * Props:
+ * - Strapi Asset
+ * - Display (full | inset)
+ */
 function ArtworkList(props) {
+    const alignmentAttributes = {
+        "left": "flex-start",
+        "center": "center",
+        "right": "flex-end"
+    }
     return (<>
         { props.artworkCollection ? props.artworkCollection.map((item, i) => (
             <Box sx={heroStyles} key={item.asset.hash} >
-                {/* <img src={item.asset.url} alt={item.asset.name} loading='lazy'></img> */}
-                <ArtworkLazy data={ item.asset ? item.asset : null}/>
-                <h2>{ item.title }</h2>
-                <p>{ item.description }</p>
+                <Box display="flex" justifyContent="center" alignItems={item ? alignmentAttributes[item.alignment] : "center"} flexDirection="column">
+                    <ArtworkLazy data={ item.asset ? item.asset : null} display={ item ? item.display : "full"}/>
+                    <h2>{ item.title }</h2>
+                    <p>{ item.description }</p>
+                </Box>
             </Box>
         )) : ''}
     </>);

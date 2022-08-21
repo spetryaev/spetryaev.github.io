@@ -20,7 +20,7 @@ function SideBar(props) {
             headers: { Authorization: `Bearer ${token}` }
         }
         const { data } = await axios.get(
-                'http://localhost:1337/api/art-projects',
+                'http://localhost:1337/api/art-projects?sort=createdAt:desc',
                 config
             );
         console.log(data);
