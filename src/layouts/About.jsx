@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm'
 import { SocialIcon } from 'react-social-icons';
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
+import Artwork from '../components/artwork/Artwork';
 
 const styles = {
     padding: {
@@ -48,11 +49,11 @@ function About() {
             headers: { Authorization: `Bearer ${token}` }
         }
         const { data } = await axios.get(
-                'http://localhost:1337/api/about-page',
+                'http://localhost:1337/api/about-page?populate[heroBanner]=%2A',
                 config
             );
         console.log(data);
-        setVal(data);
+        setVal(data.data);
     };
   
     useEffect(() => {
@@ -62,10 +63,18 @@ function About() {
 
     return (<Box sx={styles}>
                 <Box sx={heroStyles}>
-                    <img src="/assets/images/about-hero.jpg" alt="Daria-hero"></img>
+                    <Artwork
+                        sx={heroStyles}
+                        item={ val }
+                        asset={ val ? val.heroBanner : null } 
+                        display={ val && val.display ? val.display : "full"}
+                        alignment={ val && val.alignment ? val.alignment : "center"}
+                        showTitle={ true }
+                        showDescription={ true }
+                    />
                 </Box>
                 <Box sx={blogStyles}>
-                    <ReactMarkdown children={val ? val.data.description : 'Loading..'} remarkPlugins={[remarkGfm]} />
+                    <ReactMarkdown children={val ? val.description : 'Loading..'} remarkPlugins={[remarkGfm]} />
                 </Box>
                 <Social/>
             </Box>);

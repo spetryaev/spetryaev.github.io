@@ -45,7 +45,6 @@ function Artwork(props) {
                         width={ props.display && props.display === "inset" ? "50%" : "100%" }
                         placeholderSrc={ props.asset ? props.asset.formats.thumbnail.url : '' }
                         height="auto"
-                        //max-width="100%"
                         effect="blur"
                     />
                     { props.item && props.showTitle ? <h2> { props.item.title }</h2> : '' }
