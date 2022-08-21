@@ -7,6 +7,9 @@ import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import Artwork from '../components/artwork/Artwork';
 
+const strapiUrl = process.env.REACT_APP_STRAPI_URL;
+const token = process.env.REACT_APP_STRAPI_TOKEN;
+
 const styles = {
     padding: {
         xs: '0 1rem 3.5rem',
@@ -43,13 +46,11 @@ function About() {
     const [val, setVal] = useState();
 
     const getData= async () => {
-
-        const token = "dd3ee882aba1e0d8f0b6e32cf0de0f26851b4339e0f5118e8a59a5d9edfac943c134d838acf5a38285591b4d54ac7bc9e7cd3fc858c8ff43f066cd9d7954a1b351c07b12e9431e85ef77fa27eaa45e7f9b935c38458ef078351472f8f1df1216cfa8fa200842af913fcec56af54df0574a0e16f4cad684028e3c809c7ba2d563";
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         const { data } = await axios.get(
-                'http://localhost:1337/api/about-page?populate[heroBanner]=%2A',
+                strapiUrl + '/api/about-page?populate[heroBanner]=%2A',
                 config
             );
         console.log(data);

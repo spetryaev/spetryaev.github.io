@@ -27,8 +27,9 @@ const itemStyles = (theme) => ({
 function ArtworkGrid(props) {
     const showOneColumn = useMediaQuery('(max-width:1200px)');
     let nCols = 3;
-    // if (showOneColumn) {
-    //     nCols = 1;
+    if (showOneColumn) {
+        nCols = 1;
+    }
     // } else {
     //     nCols = props.artworks.length > 4 ? 3 : props.artworks.length > 2 ? 2 : 1;
     // }

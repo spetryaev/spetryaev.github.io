@@ -43,7 +43,7 @@ function Artwork(props) {
                         alt={ props.asset ? props.asset.name : ''}
                         src={ props.asset ? props.asset.url : '' }
                         width={ props.display && props.display === "inset" ? "50%" : "100%" }
-                        placeholderSrc={ props.asset ? props.asset.formats.thumbnail.url : '' }
+                        placeholderSrc={ props.asset && props.asset.formats ? props.asset.formats.thumbnail.url : '' }
                         height="auto"
                         effect="blur"
                     />
