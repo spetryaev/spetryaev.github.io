@@ -9,8 +9,12 @@ Current roadmap:
 - [x] Core template
 - [x] Image grids and lightbox
 - [x] Responsive Layout
+- [x] CMS
 - [ ] SEO
 - [ ] Animations
 - [ ] Seamless Transitions between pages
 - [ ] UI modules for showcasing specific media
 - [ ] More content!
+
+
+https://ahrefs.com/blog/react-seo/

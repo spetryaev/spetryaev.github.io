@@ -1,30 +1,33 @@
 import ArtworkGrid from '../components/artwork-grid/ArtworkGrid';
-import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 const strapiUrl = process.env.REACT_APP_STRAPI_URL;
 const token = process.env.REACT_APP_STRAPI_TOKEN;
 
-function Featured() {
+function Category() {
     const [val, setVal] = useState();
-
-    const getData = async () => {
+    const location = useLocation();
+    const slug = location.pathname.split( '/' )[1];
+    const url = strapiUrl + '/api/art-categories?filters[slug]=' + slug + '&populate[artworks][populate][1]=asset';
+    const getData= async () => {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
         const { data } = await axios.get(
-                strapiUrl + '/api/featured-page?populate[artworks]=%2A',
+                url,
                 config
             );
-        console.log(data);
-        setVal(data.data);
+        console.log("Fetching category: " + slug);
+        setVal(data.data[0]);
     };
   
     useEffect(() => {
         getData();
-    }, []);
-    
+    }, [location]);
+
     return (<ArtworkGrid artworks={val ? val.artworks : null}></ArtworkGrid>);
 }
 
-export default Featured;
+export default Category;

@@ -5,16 +5,16 @@ import './index.scss';
 import App from './app/App';
 import reportWebVitals from './reportWebVitals';
 
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Store from './app/Store';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={Store}>
-      <HashRouter hashtype="noshalsh">
+      <BrowserRouter hashtype="noshalsh">
         <App />
-      </HashRouter>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
