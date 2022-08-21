@@ -26,25 +26,29 @@ const itemStyles = (theme) => ({
 
 function ArtworkGrid(props) {
     const showOneColumn = useMediaQuery('(max-width:1200px)');
-    let nCols;
+    let nCols = 3;
     if (showOneColumn) {
         nCols = 1;
-    } else {
-        nCols = props.artworks.length > 4 ? 3 : props.artworks.length > 2 ? 2 : 1;
     }
-     
+    // } else {
+    //     nCols = props.artworks.length > 4 ? 3 : props.artworks.length > 2 ? 2 : 1;
+    // }
+
     return (
         <>
             <Box sx={gridStyles}>
             <ImageList variant="masonry" cols={nCols} gap={8}>
-                    {props.artworks.map((item, index) => (
-                        // Lazy loading not working https://www.npmjs.com/package/react-lazy-load-image-component
-                        <LazyLoadComponent key={index} delayTime={10000}>
-                            <ImageListItem key={index} sx={itemStyles}>
-                                <Artwork key={item.key} {...item}></Artwork>
-                            </ImageListItem>
-                        </LazyLoadComponent>
-                    ))}
+                    {props.artworks ? props.artworks.map((item, index) => (
+                        <Artwork
+                            key={index}
+                            item={ item }
+                            asset={ item ? item : null } 
+                            display={ item ? item.display : "full"}
+                            alignment={ item && item.alignment ? item.alignment : "center"}
+                            showTitle={ false }
+                            showDescription={ false }
+                        />
+                    )) : ''}
             </ImageList>
             </Box>
         </>
