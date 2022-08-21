@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Main from '../layouts/Main';
 import Featured from '../layouts/Featured';
 import About from '../layouts/About';
-import Showcase from '../layouts/Showcase';
+import Category from '../layouts/Category';
 import Project from '../layouts/Project';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
             <Route exact path="about" element={<About/>}/>
             <Route path="projects/*" element={<Project />}/>
 
-            <Route path="*" element={<Showcase/>}/>
+            <Route path="*" element={<Category/>}/>
           </Route>
         </Routes>
      </div>

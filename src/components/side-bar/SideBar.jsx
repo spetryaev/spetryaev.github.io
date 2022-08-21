@@ -11,7 +11,8 @@ import React, { useEffect, useState } from "react";
 function SideBar(props) {
     const drawerWidth = 280;
 
-    const [val, setVal] = useState();
+    const [categories, setCategories] = useState();
+    const [projects, setProjects] = useState();
 
     const getData= async () => {
 
@@ -19,13 +20,11 @@ function SideBar(props) {
         const config = {
             headers: { Authorization: `Bearer ${token}` }
         }
-        const { data } = await axios.get(
+        let { data } = await axios.get(
                 'http://localhost:1337/api/art-projects?sort=createdAt:desc',
                 config
             );
-        console.log(data);
-
-        const projectItems = [];
+        const projectItems = [];        
         data.data.forEach(item => {
             projectItems.push({
                 "name": item.slug,
@@ -33,7 +32,25 @@ function SideBar(props) {
                 "uri": "projects/" + item.slug
             });
         });
-        setVal(projectItems);
+        setProjects(projectItems);
+
+
+        data = await axios.get(
+                'http://localhost:1337/api/art-categories?sort=title:asc',
+                config
+            );
+        const categoryItems = [];        
+        data.data.data.forEach(item => {
+            categoryItems.push({
+                "name": item.slug,
+                "label": item.title,
+                "uri": item.slug
+            });
+        });
+
+        setCategories(categoryItems);
+        
+        console.log("Fetched categories and projects")
     };
   
     useEffect(() => {
@@ -58,11 +75,11 @@ function SideBar(props) {
                 <div className="side-bar">
                     <Header></Header>
                     <List className="side-bar__nav">
-                        {props.navItems.map((item, index) => (
+                        {categories && categories ? categories.map((item, index) => (
                             <ListItem sx={{p:0}} key={item.name}><NavLink className={({ isActive }) => (isActive ? 'side-bar__nav_active' : 'side-bar__nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink></ListItem>
-                        ))}
+                        )) : null}
                         <Divider light className="side-bar__nav_divider"/>
-                        {val ? val.map((item, index) => (
+                        {projects && projects ? projects.map((item, index) => (
                             <ListItem sx={{p:0}} key={item.name}><NavLink className={({ isActive }) => (isActive ? 'side-bar__nav_active' : 'side-bar__nav_inactive')} to={item.uri} key={item.name}>{item.label}</NavLink></ListItem>
                         )) : null}
                         <Divider light className="side-bar__nav_divider"/>

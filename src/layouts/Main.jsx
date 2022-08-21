@@ -59,8 +59,12 @@ const data = {
 function Main() {
     const contentStyles = (theme) => ({
         [theme.breakpoints.down('sm')]: {
-            paddingTop: '4rem'
-        }
+            paddingTop: '4rem',
+            width: '100%'
+        },
+        [theme.breakpoints.up('md')]: {
+            width: '100%'
+        },
     });
   return (
         <>
