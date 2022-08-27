@@ -63,7 +63,7 @@ function Project() {
 function ArtworkList(props) {
     
     return (<>
-            { props.artworkCollection ? props.artworkCollection.map((item, i) => (
+            { props.artworkCollection ? props.artworkCollection.filter(item => item.asset !== null).map((item, i) => (
                 <Artwork
                     key={item.asset.hash}
                     item={ item } 
