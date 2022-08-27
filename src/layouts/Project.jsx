@@ -4,13 +4,14 @@ import { Box } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import Artwork from '../components/artwork/Artwork';
+import useDocumentTitle from '../utils/useDocumentTitle';
 
 const strapiUrl = process.env.REACT_APP_STRAPI_URL;
 const token = process.env.REACT_APP_STRAPI_TOKEN;
 
-
 function Project() {
     const [val, setVal] = useState();
+    useDocumentTitle(val ? val.title : 'Project');
     const location = useLocation();
     
     useEffect(() => {
@@ -33,6 +34,7 @@ function Project() {
     }, [location]);
 
     return (<>
+            {/* Hero */}
              <Artwork
                     item={ val }
                     asset={ val ? val.heroBanner : null } 
@@ -40,17 +42,14 @@ function Project() {
                     alignment={ val && val.alignment ? val.alignment : "center"}
                     showTitle={ true }
                     showDescription={ true }
+                    lightbox={ false }
                 />
-        <Box 
-            display="flex" 
-            flexDirection="column"
-            alignItems="center">
-                
+            <Box 
+                display="flex" 
+                flexDirection="column"
+                alignItems="center">
                 <h1>{ val ? val.headline : '' }</h1>
-        </Box>
-        
-        {/* Content box */}
-
+            </Box>
             <ArtworkList artworkCollection={val ? val.artworkCollection : null}></ArtworkList>
         
     </>);

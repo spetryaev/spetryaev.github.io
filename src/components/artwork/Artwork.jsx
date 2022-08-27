@@ -7,6 +7,11 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
+const alignmentOptions = {
+    "left": "flex-start",
+    "center": "center",
+    "right": "flex-end"
+}
 
 function Artwork(props) {
     const dispatch = useDispatch();
@@ -17,30 +22,25 @@ function Artwork(props) {
             dispatch(toggleModal({src: props.asset ? props.asset.url : '', lightboxOpen: true}));
         }
     };
-
-    const alignmentAttributes = {
-        "left": "flex-start",
-        "center": "center",
-        "right": "flex-end"
-    }
+    
     return (<Box
                 sx={{ flexWrap: 'wrap' }} 
                 display="flex" 
                 flexDirection="column"
-                alignItems={ alignmentAttributes[props.alignment] }
+                alignItems={ alignmentOptions[props.alignment] }
                 className="artwork-container">
                     <LazyLoadImage 
-                        onClick={handleOnlick}
+                        onClick={ props.lightbox ? handleOnlick : null}
                         className="artwork" 
                         alt={ props.asset ? props.asset.name : ''}
-                        src={ props.asset ? props.asset.url : '' }
+                        src={ props.asset ? props.asset.url : '' } // TODO: pass smaller format for data saving
                         width={ props.display && props.display === "inset" ? "50%" : "100%" }
                         placeholderSrc={ props.asset && props.asset.formats ? props.asset.formats.thumbnail.url : '' }
                         height="auto"
                         effect="blur"
                     />
-                    { props.item && props.showTitle ? <h2> { props.item.title }</h2> : '' }
-                    { props.item && props.showDescription ? <p>{ props.item.description }</p> : '' }
+                    { props.item && props.showTitle ? <h2> { props.item.title }</h2> : null }
+                    { props.item && props.showDescription ? <p>{ props.item.description }</p> : null }
             </Box>
         );
 }
