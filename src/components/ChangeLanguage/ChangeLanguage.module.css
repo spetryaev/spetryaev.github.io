@@ -1,0 +1,19 @@
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.option {
+  cursor: pointer;
+}
+
+.selected {
+  font-weight: bold;
+  cursor: initial;
+}
+/*# sourceMappingURL=ChangeLanguage.module.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,OAAO;EACd,eAAe,EAAE,IAAI;CAOtB;;AATD,AAIE,KAJG,AAIF,MAAM,EAJT,KAAK,AAKF,MAAM,EALT,KAAK,AAMF,OAAO,CAAC;EACP,eAAe,EAAE,SAAS;CAC3B",
+    "sources": [
+        "InternalLink.module.scss"
+    ],
+    "names": [],
+    "file": "InternalLink.module.css"
+}

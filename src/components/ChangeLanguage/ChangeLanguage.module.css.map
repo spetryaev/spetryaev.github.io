@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC;EACT,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;CACpB;;AAED,AAAA,OAAO,CAAC;EACN,MAAM,EAAE,OAAO;CAChB;;AAED,AAAA,SAAS,CAAC;EACR,WAAW,EAAE,IAAI;EACjB,MAAM,EAAE,OAAO;CAChB",
+    "sources": [
+        "ChangeLanguage.module.scss"
+    ],
+    "names": [],
+    "file": "ChangeLanguage.module.css"
+}

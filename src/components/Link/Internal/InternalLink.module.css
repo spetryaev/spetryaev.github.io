@@ -1,0 +1,11 @@
+.link {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.link:hover,
+.link:focus,
+.link:active {
+  text-decoration: underline;
+}
+/*# sourceMappingURL=InternalLink.module.css.map */

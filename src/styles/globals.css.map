@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,SAAS,CAAT,IAAS;AACT,SAAS,CAAT,UAAS;AACT,SAAS,CAAT,SAAS;AAET,MAAM,CAAN,IAAM;EACJ,AAAA,IAAI;EACJ,IAAI,CAAC;IACH,MAAM,CAAN,SAAM;GACP",
+    "sources": [
+        "globals.scss"
+    ],
+    "names": [],
+    "file": "globals.css"
+}
