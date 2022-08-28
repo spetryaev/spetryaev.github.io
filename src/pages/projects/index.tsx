@@ -1,20 +1,12 @@
 import * as React from 'react';
 import InternalLink from 'components/Link/Internal';
 import { LayoutProject } from 'components/Layout/Project';
-
-const token = process.env.REACT_APP_STRAPI_TOKEN;
-const domain = process.env.REACT_APP_STRAPI_URL;
+import { getProjects } from 'utils/api';
 
 export const getStaticProps = async () => {
   let projects = [];
   try {
-    const config = {
-      headers: { Authorization: `Bearer ${token}` },
-    };
-    const res = await fetch(domain + '/api/art-projects', config);
-    const data = await res.json();
-    console.log(data);
-    projects = data.data;
+    projects = await getProjects();
   } catch (e) {
     console.error(e);
   }

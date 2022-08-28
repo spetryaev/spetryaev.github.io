@@ -11,7 +11,7 @@ import { updateAssetsPrefix } from 'utils/path';
 const styles = {
   header: 'flex items-center border border-gray-200 min-h-[60px] w-full px-4',
   container: 'p-0 flex flex-col min-h-screen',
-  main: 'px-4 flex flex-col flex-1',
+  main: 'px-0 md:px-4 flex flex-col flex-1',
   footer:
     'mt-6 w-full h-16 border-t border-gray-200 flex justify-center items-center space-x-2',
   footerLink: 'flex justify-center items-center',
