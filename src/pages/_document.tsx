@@ -8,7 +8,6 @@ export default class Document extends NextDocument {
       <Html>
         <Head>
           <meta name="version" content={process.env.VERSION} />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
           <meta name="title" content="Sergey Petryaev" />
           <meta name="description" content="Sergey Petryaev's art portfolio" />
